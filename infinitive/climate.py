@@ -14,7 +14,7 @@ import logging
 import homeassistant.helpers.config_validation as cv
 from homeassistant.const import CONF_FILENAME, CONF_HOST, CONF_PORT, \
     TEMP_CELSIUS, TEMP_FAHRENHEIT, ATTR_FRIENDLY_NAME
-from homeassistant.components.climate import ClimateDevice, PLATFORM_SCHEMA, \
+from homeassistant.components.climate import ClimateEntity, PLATFORM_SCHEMA, \
     ATTR_TEMPERATURE
 
 from homeassistant.components.climate.const import ATTR_CURRENT_TEMPERATURE, \
@@ -95,7 +95,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     add_entities([InfinitiveDevice(inf_device, name, temp_min_spread)])
 
 
-class InfinitiveDevice(ClimateDevice):
+class InfinitiveDevice(ClimateEntity):
     """Representation of an Infinitive Device."""
 
     def __init__(self, inf_device, name, temp_min_spread):
